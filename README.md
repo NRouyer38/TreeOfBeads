@@ -46,17 +46,105 @@ __Quick summary of the structur :__
 
 ## Installation
 
+You can install the three assets on a unique machine but the security will improve if it is installed on three different machine.
+
 ### TobGraphServer
+
+__Commandline:__
+
+Open a terminal and write :
+
+```bash
+# Update package
+sudo apt-get update
+
+# Install needed package
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+
+# Get key to check validity of neo4j
+curl -fsSL https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+
+# Add neo4j repository
+sudo add-apt-repository "deb https://debian.neo4j.com stable 4.1"
+
+# install neo4j
+sudo apt-get install neo4j
+
+```
+
+__Docker:__
+
+Open a terminal in this git repository and write:
+
+```bash
+docker run ...
+```
 
 ### TobWebInterface
 
 __Node:__
 
+```bash
+npm install -g angular-cli
+```
+
 __Docker:__
+```bash
+docker run ...
+```
 
 ### TobUserServer
 
+__Command line :__
+```bash
+# Maria DB
+sudo apt-get update
+sudo apt-get install mariadb-server
+```
+
+__Docker :__
+```bash
+docker run ...
+```
+
 ## Configuration
+
+## Run
+
+### TobGraphServer
+
+Open a terminal in this git repository
+
+```bash
+# Go to the TobGraphServer repo
+cd TobGraphServer
+
+# Run neo4j database
+sudo service neo4j start
+
+# Launch api
+node app.js
+```
+
+### TobUserServer
+
+Open a terminal
+
+```bash
+sudo service mysql start
+```
+
+
+### TobWebInterface
+
+Open a terminal in this git repository and run :
+```bash
+cd TobWebInterface
+ng serve --port 80
+```
+
+Open [http://localhost/](http://localhost/)
+
 
 ## Documentation
 
