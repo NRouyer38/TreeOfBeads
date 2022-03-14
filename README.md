@@ -27,7 +27,7 @@ TreeOfBeads is composed of three main elements called: __TobGraphServer__, __Tob
 We will go into the details of these three elements later. They are independent, but are designed to work very simply together.
 
 <p align="center">
-    <img src="media/img/logo_3_tob.png">
+    <img src="media/img/logo_3_tob.png" width="500 px">
     <p align="center">TobGraphServer, TobWebClient and TobUserServer</p>
 </p>
 
