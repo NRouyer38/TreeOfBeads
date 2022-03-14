@@ -140,10 +140,10 @@ sudo service mysql start
 Open a terminal in this git repository and run :
 ```bash
 cd TobWebInterface
-ng serve --port 80
+ng serve --port 8080
 ```
 
-Open [http://localhost/](http://localhost/)
+Open [http://localhost:8080](http://localhost:8080)
 
 
 ## Documentation
