@@ -50,7 +50,7 @@ You can install the three assets on a unique machine but the security will impro
 
 ### TobGraphServer
 
-__Commandline:__
+__Command line:__
 
 Open a terminal and write :
 
