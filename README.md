@@ -97,7 +97,7 @@ docker run ...
 __Node:__
 
 ```bash
-npm install -g angular-cli
+npm install -g @angular/cli
 ```
 
 __Docker:__
