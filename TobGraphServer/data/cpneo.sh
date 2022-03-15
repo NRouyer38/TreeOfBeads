@@ -1,0 +1,1 @@
+sudo cp data/*.csv /var/lib/neo4j/import/
