@@ -1,14 +1,16 @@
 # TreeOfBeads
 
-Formalisation et visualisation d’un parcours de formation en Télédétection.
-### Ce projet est réalisé dans le cadre du projet long de fin de parcours Master TSI 2022
-## Il est réalisé par : 
+Formalization and visualization of a training course in Remote Sensing.
+
+This project is realized within the framework of the long project of end of course Master TSI 2022.
+
+__It is produced by :__ 
 * Nicolas Rouyer : @NRouyer38
 * Sefiane Kachouani : @SefianeKach
 * Jules Pierrat :  @JulesPierrat
 * Charles Laverdure : @Charles0009
 
-### Sous la supervision de Marc Poupée et Marie-Dominique Van Damme, enseignants en télédétection à l'ENSG
+*Under the supervision of Marc Poupée and Marie-Dominique Van Damme, teachers in remote sensing at ENSG (FR)*
 
 
 ## Summary
