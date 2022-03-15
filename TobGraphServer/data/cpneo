@@ -1,0 +1,1 @@
+cp test.csv /var/lib/neo4j/import/
