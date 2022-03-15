@@ -5,10 +5,10 @@ Formalization and visualization of a training course in Remote Sensing.
 This project is realized within the framework of the long project of end of course Master TSI 2022.
 
 __It is produced by :__ 
-* Nicolas Rouyer : @NRouyer38
-* Sefiane Kachouani : @SefianeKach
-* Jules Pierrat :  @JulesPierrat
-* Charles Laverdure : @Charles0009
+* Nicolas Rouyer : [@NRouyer38](https://www.github.com/NRouyer38)
+* Sefiane Kachouani : [@SefianeKach](https://www.github.com/SephianeKach)
+* Jules Pierrat :  [@JulesPierrat](https://www.github.com/JulesPierrat)
+* Charles Laverdure : [@Charles0009](https://www.github.com/Charles0009)
 
 *Under the supervision of Marc Poupée and Marie-Dominique Van Damme, teachers in remote sensing at ENSG (FR)*
 
@@ -137,6 +137,8 @@ sudo service neo4j start
 # Launch api
 node app.js
 ```
+
+If you want to add exemple data from [Book of Knowledge](https://bok.eo4geo.eu/GIST) here is the [tutorial](./TobGraphServer/data/DATA-EXAMPLE.md)
 
 ### TobUserServer
 
