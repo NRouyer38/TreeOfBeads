@@ -1,4 +1,4 @@
-# TobWebInterface - Tree Of Beeds
+# TobWebInterface - Tree Of Beads
 An asset of [Tree of beads](../README.md);
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
