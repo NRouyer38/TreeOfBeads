@@ -69,7 +69,4 @@ MATCH (c:Concept {id: idconcept})
 MERGE (c)-[r:NEED]->(s);
 ```
 
-You can if you restrict your data to 'remote sensing' by using this cypher-shell command : 
-```bash
-
-```
+<img src="../../media/img/ConceptsOfRemoteSensingBok.png">
