@@ -45,12 +45,19 @@ UNWIND split(row.Concepts, ':') AS idconcept
 MATCH (c:Concept {id: idconcept})
 MERGE (f)-[r:REFER_TO]->(c);
 
-# MAKE RELATION
+# MAKE RELATION IS_SUBCONCEPT OF
 LOAD CSV WITH HEADERS FROM 'file:///relation.csv' AS row
 WITH row WHERE row.Id IS NOT NULL AND row.Name = "IS_SUBCONCEPT_OF"
 MATCH(s:Concept {id: row.Source})
 MATCH(t:Concept {id: row.Target})
 MERGE (s)-[r:IS_SUBCONCEPT_OF]->(t);
+
+# MAKE RELATION IS_SUBCONCEPT OF
+LOAD CSV WITH HEADERS FROM 'file:///relation.csv' AS row
+WITH row WHERE row.Id IS NOT NULL AND row.Name = "IS_PREREQUISE_OF"
+MATCH(s:Concept {id: row.Source})
+MATCH(t:Concept {id: row.Target})
+MERGE (s)-[r:IS_PREREQUISE_OF]->(t);
 
 # LOAD SKILL
 LOAD CSV WITH HEADERS FROM 'file:///skill.csv' AS row
