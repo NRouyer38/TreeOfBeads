@@ -100,7 +100,16 @@ docker run ...
 __Node:__
 
 ```bash
+# Install angular
 npm install -g @angular/cli
+
+# Install backend
+cd backend
+npm install
+
+# Install frontend
+cd ../frontend
+npm install
 ```
 
 __Docker:__
@@ -157,11 +166,19 @@ sudo service mysql start
 __Developpers__ :
 Open a terminal in this git repository and run :
 ```bash
+# Go to repository
 cd TobWebInterface
-ng serve --port 8080
+
+# Run backend
+cd backend
+npm start
+
+# Run frontend
+cd ../frontend
+ng serve
 ```
 
-Open [http://localhost:8080](http://localhost:8080)
+Open [http://localhost:4200](http://localhost:4200)
 
 __Build version__:
 
