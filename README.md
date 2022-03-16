@@ -82,6 +82,9 @@ sudo add-apt-repository "deb https://debian.neo4j.com stable 4.1"
 # install neo4j
 sudo apt-get install neo4j
 
+# Install API
+npm install
+
 ```
 
 __Docker:__
