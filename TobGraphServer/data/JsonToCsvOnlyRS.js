@@ -1,25 +1,23 @@
 function convertJsonToCSV(path) {
     var fs = require('fs');
     var obj = JSON.parse(fs.readFileSync(path, 'utf8'));
-    const filter = "REMOTE SENSING";
     const DELETED_CONCEPT = [];
+    const filter = "REMOTE SENSING";
 
     // CREATE CONCEPTS NODE
     // CREATE FILE
     let concept = 'data/concept.csv';
-    fs.writeFileSync(concept, 'Id,Code,Name,Description,Category\r');
+    fs.writeFileSync(concept, 'Id,Code,Name,Description\r');
 
     // WRITE IN FILE
     let key = 0;
     obj.concepts.forEach(c => {
-        let CAT = "NONE"
         if (c.description.toUpperCase().search(filter) != -1 || c.name.toUpperCase().search(filter) != -1) {
-            CAT = "REMOTE SENSING";
+            let row = key + "," + c.code + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "\r";
+            fs.appendFileSync(concept, row);
         } else {
             DELETED_CONCEPT.push(key);
         }
-        let row = key + "," + c.code + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "," + CAT + "\r";
-        fs.appendFileSync(concept, row);
         key++;
     });
 
@@ -74,8 +72,10 @@ function convertJsonToCSV(path) {
 
     key = 0;
     obj.relations.forEach(r => {
-        let row = key + "," + r.name.toUpperCase().replace(/ /gi, "_") + "," + r.source + "," + r.target + "\r";
-        fs.appendFileSync(relation, row);
+        if (!(DELETED_CONCEPT.includes(r.source) || DELETED_CONCEPT.includes(r.target))) {
+            let row = key + "," + r.name.toUpperCase().replace(/ /gi, "_") + "," + r.source + "," + r.target + "\r";
+            fs.appendFileSync(relation, row);
+        }
         key++;
     });
 
