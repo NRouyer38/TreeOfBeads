@@ -9,11 +9,7 @@ export class IntroComponent implements OnInit {
 
   title = "Tree of Beads"
   description = "Formalization and visualization of a training course in Remote Sensing"
-  bg_path = [
-    "src/assets/img/sentinel2-bg1.jpg",
-    "src/assets/img/sentinel2-bg2.jpg"
-  ];
-  time_to_change_bg = 5000
+  discoverid= "#discover"
 
   constructor() {
   }
@@ -22,18 +18,14 @@ export class IntroComponent implements OnInit {
 
   }
 
-  ngAfterViewInit() {
-    
+  smoothTo(): void {
+    document.querySelector(this.discoverid)?.scrollIntoView({
+      behavior: 'smooth'
+    })
   }
 
-  changeBackGround(): void {
-
-    let rnd = Math.floor(Math.random() * (this.bg_path.length));
-
-    setTimeout(() => {
-      this.changeBackGround();
-    }, 5000)
-
+  goToLoginPage(): void {
+    window.location.href = "/login";
   }
 
 }

@@ -8,6 +8,7 @@ import { HeaderComponent } from './home/header/header.component';
 import { IntroComponent } from './home/intro/intro.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { DiscoverComponent } from './home/discover/discover.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -18,7 +19,8 @@ import { DiscoverComponent } from './home/discover/discover.component';
     HeaderComponent,
     IntroComponent,
     FooterComponent,
-    DiscoverComponent
+    DiscoverComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -12,4 +12,8 @@ export class DiscoverComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToLoginPage(): void {
+    window.location.href = "/login";
+  }
+
 }
