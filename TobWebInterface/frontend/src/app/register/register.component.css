@@ -1,0 +1,9 @@
+.back {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    transition: 0.25s;
+    background-image: url(src/assets/img/sentinel2-bg9.jpg) !important;
+    background-size: cover;
+    background-position: center center;
+}
