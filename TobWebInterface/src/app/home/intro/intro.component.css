@@ -1,6 +1,6 @@
 .hero {
     transition: 0.25s;
-    /* background-image: url(src/assets/img/sentinel2-bg0.jpg) !important; */
+    background-image: url(src/assets/img/sentinel2-bg0.jpg) !important;
     background-size: cover;
     background-position: center center;
 }
