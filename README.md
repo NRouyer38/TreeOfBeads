@@ -86,6 +86,9 @@ sudo apt-get install neo4j
 cd TobGraphServer
 npm install
 
+# Install BoK Data (Linux)
+sudo ./init-cypher-bok.sh
+
 ```
 
 __Docker:__

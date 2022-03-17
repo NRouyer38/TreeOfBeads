@@ -1,24 +1,16 @@
-function convertJsonToCSV(path) {
-    var fs = require('fs');
-    var obj = JSON.parse(fs.readFileSync(path, 'utf8'));
-    const filter = "REMOTE SENSING";
-    const DELETED_CONCEPT = [];
-
+function convertJsonToCSV() {
     // CREATE CONCEPTS NODE
     // CREATE FILE
     let concept = 'data/concept.csv';
-    fs.writeFileSync(concept, 'Id,Code,Name,Description,Category\r');
+    fs.writeFileSync(concept, 'Id,Code,Name,Description,Parent\r');
 
     // WRITE IN FILE
     let key = 0;
     obj.concepts.forEach(c => {
-        let CAT = "NONE"
-        if (c.description.toUpperCase().search(filter) != -1 || c.name.toUpperCase().search(filter) != -1) {
-            CAT = "REMOTE SENSING";
-        } else {
-            DELETED_CONCEPT.push(key);
-        }
-        let row = key + "," + c.code + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "," + CAT + "\r";
+
+        let parent = getParent(c.code);
+
+        let row = key + "," + c.code + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "," + parent + "\r";
         fs.appendFileSync(concept, row);
         key++;
     });
@@ -30,18 +22,9 @@ function convertJsonToCSV(path) {
 
     key = 0;
     obj.contributors.forEach(c => {
-        let used = false;
-        let CONCEPTS = [];
-        c.concepts.forEach(cc => {
-            if (!DELETED_CONCEPT.includes(cc) && !used) {
-                used = true;
-                CONCEPTS.push(cc);
-            }
-        });
-        if (used) {
-            let row = +key + "," + CONCEPTS.join(":") + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "," + c.url + "\r";
-            fs.appendFileSync(contributor, row);
-        }
+
+        let row = +key + "," + c.concepts.join(":") + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "," + c.url + "\r";
+        fs.appendFileSync(contributor, row);
         key++;
     });
 
@@ -52,18 +35,8 @@ function convertJsonToCSV(path) {
 
     key = 0;
     obj.references.forEach(c => {
-        let used = false;
-        let CONCEPTS = [];
-        c.concepts.forEach(cc => {
-            if (!DELETED_CONCEPT.includes(cc) && !used) {
-                used = true;
-                CONCEPTS.push(cc);
-            }
-        });
-        if (used) {
-            let row = +key + "," + CONCEPTS.join(":") + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "," + c.url + "\r";
-            fs.appendFileSync(reference, row);
-        }
+        let row = +key + "," + c.concepts.join(":") + "," + c.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + c.description.replace(/,/gi, " -").replace(/(\r\n|\n|\r)/gm, "\\r").replace(/"/gi, "'") + "," + c.url + "\r";
+        fs.appendFileSync(reference, row);
         key++;
     });
 
@@ -86,18 +59,8 @@ function convertJsonToCSV(path) {
 
     key = 0;
     obj.skills.forEach(s => {
-        let used = false;
-        let CONCEPTS = [];
-        s.concepts.forEach(cc => {
-            if (!DELETED_CONCEPT.includes(cc) && !used) {
-                used = true;
-                CONCEPTS.push(cc);
-            }
-        });
-        if (used) {
-            let row = +key + "," + s.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + CONCEPTS.join(":") + "\r";
-            fs.appendFileSync(skill, row);
-        }
+        let row = +key + "," + s.name.replace(/,/gi, " -").replace(/"/gi, "'") + "," + s.concepts.join(":") + "\r";
+        fs.appendFileSync(skill, row);
         key++;
 
     });
@@ -105,5 +68,42 @@ function convertJsonToCSV(path) {
 
 }
 
+function getParent(code) {
+    if (code == "GIST") {
+        return "NONE"
+    }
+
+    if (code.length == 2) {
+        return "GIST"
+    }
+
+    if (code.length >= 2) {
+        c = code.split("-");
+        if (c.length == 1){
+            return checkParent(c[0].substring(0,2));
+        } else {
+            let cc = [];
+            for(var i = 0 ; i < c.length -1 ; i++ ) {
+                cc.push(c[i])
+            }
+
+            return checkParent(cc.join("-"));
+        }
+    }
+
+    return "ERROR";
+}
+
+function checkParent(code) {
+    for (let i = 0; i < obj.concepts.length ; i++) {
+        if (obj.concepts[i].code == code) {
+            return code;
+        }
+    }
+    return getParent(code);
+}
+
+var fs = require('fs');
 const path = "data/current.json";
-convertJsonToCSV(path);
+const obj = JSON.parse(fs.readFileSync(path, 'utf8'));
+convertJsonToCSV();
