@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 exports.register = async (req, res, next) => {
     const errors = validationResult(req);
 
-    if(errors.isEmpty()) return;
+    if(!errors.isEmpty()) return;
 
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
