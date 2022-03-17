@@ -9,7 +9,7 @@ const User = require('../models/user');
 const authController = require('../controllers/auth');
 
 router.post(
-    './register',
+    '/register',
     [
         body('first_name').trim().not().isEmpty(),
         body('last_name').trim().not().isEmpty(),
