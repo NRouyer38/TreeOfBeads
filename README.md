@@ -83,6 +83,7 @@ sudo add-apt-repository "deb https://debian.neo4j.com stable 4.1"
 sudo apt-get install neo4j
 
 # Install API
+cd TobGraphServer
 npm install
 
 ```
