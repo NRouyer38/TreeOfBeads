@@ -4,7 +4,7 @@ const User = require('../models/user')
 
 const bcrypt = require('bcryptjs');
 
-exports.signup = async (req, res, next) => {
+exports.register = async (req, res, next) => {
     const errors = validationResult(req);
 
     if(errors.isEmpty()) return;

@@ -12,4 +12,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  register():void {
+    window.location.href = "./register";
+  }
+
+  home(): void {
+    window.location.href = ".";
+  }
+
 }

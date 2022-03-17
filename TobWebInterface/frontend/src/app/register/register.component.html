@@ -1,1 +1,57 @@
-<div class="back"></div>
+<div class="back">
+    <div class="container" style="margin:auto;padding:20px;">
+        <div class="columns is-centered">
+            <div class="column is-5-tablet is-5-desktop is-5-widescreen">
+                <div class="box">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+                        <div class="field">
+                            <label for="" class="label">First Name</label>
+                            <div class="control has-icons-left">
+                                <input type="text" placeholder="e.g. Jules" class="input" formControlName="first_name"required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Last Name</label>
+                            <div class="control has-icons-left">
+                                <input type="text" placeholder="e.g. Pierrat" class="input" formControlName="last_name" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Email</label>
+                            <div class="control has-icons-left">
+                                <input type="email" placeholder="e.g. jules.pierrat@ensg.eu" class="input" formControlName="email" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="" class="label">Password</label>
+                            <div class="control has-icons-left">
+                                <input type="password" placeholder="*******" class="input" formControlName="password" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <button class="button is-success" [disabled]="!registerForm.valid" type="submit">
+                                Register
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="separator"></div>
+                    <p class="note" (click)="login()">Already registered ?</p>
+                    <p class="note" (click)="home()">Home page</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

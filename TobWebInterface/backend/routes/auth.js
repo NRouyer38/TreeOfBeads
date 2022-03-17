@@ -9,7 +9,7 @@ const User = require('../models/user');
 const authController = require('../controllers/auth');
 
 router.post(
-    './signup',
+    './register',
     [
         body('first_name').trim().not().isEmpty(),
         body('last_name').trim().not().isEmpty(),
@@ -20,7 +20,8 @@ router.post(
             }
         }).normalizeEmail(),
         body('password').trim().isLength({min:7})
-    ], authController.signup
+    ],
+    authController.register
 );
 
 module.exports = router;

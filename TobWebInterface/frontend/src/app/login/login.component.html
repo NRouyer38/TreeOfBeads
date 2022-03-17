@@ -1,3 +1,44 @@
 <div class="back">
-
+    <div class="container" style="margin:auto;padding:20px;">
+        <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+                <div class="box">
+                <form action="">
+                    <div class="field">
+                        <label for="" class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input type="email" placeholder="e.g. jules.pierrat@ensg.eu" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="" class="label">Password</label>
+                        <div class="control has-icons-left">
+                            <input type="password" placeholder="*******" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="" class="checkbox">
+                            <input type="checkbox">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="field">
+                        <button class="button is-success">
+                            Login
+                        </button>
+                    </div>
+                </form>
+                <div class="separator"></div>
+                    <p class="note" (click)="register()">Not yet registered ?</p>
+                    <p class="note" (click)="home()">Home page</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
