@@ -127,6 +127,9 @@ sudo apt-get update
 sudo apt-get install mariadb-server
 ```
 
+Create an database with this preset :
+[Template SQL](./TobUserServer/sql/tob.sql)
+
 __Docker :__
 ```bash
 docker run ...
