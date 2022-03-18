@@ -22,14 +22,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Go to the login page
   login(): void {
     window.location.href = "/login"
   }
 
+  // Go to the home page
   home(): void {
     window.location.href = "."
   }
 
+  // Submit register
   register(): void {
     this.authService.register(this.registerForm.value).subscribe((msg) => {
       console.log(msg);

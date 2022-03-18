@@ -6,14 +6,17 @@ import { User } from "../models/User";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { first, tap, catchError } from 'rxjs/operators';
 import { ErrorHandlerService } from './error-handler.service';
+import config from "../config/config.json";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url = "http://localhost:3000/auth";
+  // Backend auth url
+  private url = config.serveur.host+"/auth";
   
+  // Attributes
   isUserLoggedIn$ = new BehaviorSubject<boolean>(false);
   userId: Pick<User, "id"> | any;
 
@@ -27,6 +30,7 @@ export class AuthService {
     private router: Router,
     ) {}
 
+  // Ask to register
   register(user: Omit<User, "id">): Observable<User> {
     return this.http.post<User>(`${this.url}/register`, user, this.httpOptions).pipe(
       first(),
@@ -34,6 +38,7 @@ export class AuthService {
     )
   }
 
+  // Ask to login
   login(email: Pick<User, "email">, password: Pick<User, "password">): Observable<{
     token: string; userId: Pick<User, "id">
   }> {

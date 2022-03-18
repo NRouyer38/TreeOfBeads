@@ -20,16 +20,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Go to the register page
   register():void {
     window.location.href = "./register";
   }
 
+  // Go to the home page
   home(): void {
     window.location.href = ".";
   }
 
+  // Submit login
   login(): void {
-    this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe();
+    this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe((msg) => {
+      console.log(msg);
+    });
   }
 
 }
