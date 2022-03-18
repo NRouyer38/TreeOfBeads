@@ -3,38 +3,38 @@
         <div class="columns is-centered">
             <div class="column is-5-tablet is-4-desktop is-4-widescreen">
                 <div class="box">
-                <form action="">
-                    <div class="field">
-                        <label for="" class="label">Email</label>
-                        <div class="control has-icons-left">
-                            <input type="email" placeholder="e.g. jules.pierrat@ensg.eu" class="input" required>
-                            <span class="icon is-small is-left">
-                                <i class="fa fa-envelope"></i>
-                            </span>
+                    <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+                        <div class="field">
+                            <label for="" class="label">Email</label>
+                            <div class="control has-icons-left">
+                                <input type="email" placeholder="e.g. jules.pierrat@ensg.eu" class="input" formControlName="email" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label for="" class="label">Password</label>
-                        <div class="control has-icons-left">
-                            <input type="password" placeholder="*******" class="input" required>
-                            <span class="icon is-small is-left">
-                                <i class="fa fa-lock"></i>
-                            </span>
+                        <div class="field">
+                            <label for="" class="label">Password</label>
+                            <div class="control has-icons-left">
+                                <input type="password" placeholder="*******" class="input" formControlName="password" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fa fa-lock"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label for="" class="checkbox">
-                            <input type="checkbox">
-                            Remember me
-                        </label>
-                    </div>
-                    <div class="field">
-                        <button class="button is-success">
-                            Login
-                        </button>
-                    </div>
-                </form>
-                <div class="separator"></div>
+                        <div class="field">
+                            <label for="" class="checkbox">
+                                <input type="checkbox">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="field">
+                            <button class="button is-success" [disabled]="!loginForm.valid" type="submit">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                    <div class="separator"></div>
                     <p class="note" (click)="register()">Not yet registered ?</p>
                     <p class="note" (click)="home()">Home page</p>
                 </div>
