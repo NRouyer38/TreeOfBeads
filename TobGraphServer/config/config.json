@@ -1,0 +1,14 @@
+{
+    "neo4j": {
+        "host": "neo4j://localhost",
+        "port": 7687,
+        "user": "neo4j",
+        "password": "21021998"
+    },
+    "get" : {
+        "authorizedHost": "*"
+    },
+    "post": {
+        "authorizedHost": "http://localhost"
+    }
+}
