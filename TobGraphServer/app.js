@@ -5,7 +5,6 @@ const neo4j = require('neo4j-driver');
 const cors = require('cors');
 
 const config = require('./config/config.json');
-const Node = require('./models/Node')
 
 // Set app
 const app = express();
@@ -93,51 +92,51 @@ app.get("/get/concepts/node/:code", cors_get, (req, res) => {
 });
 
 // TREE
-app.get("/get/concepts/tree/", cors_get, (req, res) => {
-  let session = driver.session();
+// app.get("/get/concepts/tree/", cors_get, (req, res) => {
+//   let session = driver.session();
 
-  session.run("MATCH (c:Concept) RETURN c;").then(result => {
-    let obj = {};
+//   session.run("MATCH (c:Concept) RETURN c;").then(result => {
+//     let obj = {};
 
-    result.records.forEach(r => {
-      let properties = r._fields[0].properties;
-      obj[properties.code] = properties;
-    });
+//     result.records.forEach(r => {
+//       let properties = r._fields[0].properties;
+//       obj[properties.code] = properties;
+//     });
 
-    // rearrange
-    let result = Node.treeStruct(obj);
+//     // rearrange
+//     let result = Node.treeStruct(obj);
 
-    session.close();
+//     session.close();
 
-  }).catch(err => {
-    console.log(err);
-    res.send({ "error": err });
-  });
-});
+//   }).catch(err => {
+//     console.log(err);
+//     res.send({ "error": err });
+//   });
+// });
 
-app.get("/get/concepts/root/:code", cors_get, (req, res) => {
-  // Get codes
+// app.get("/get/concepts/root/:code", cors_get, (req, res) => {
+//   // Get codes
 
-  let query = 'MATCH (c:Concept)-[:IS_CODED_FROM]->WHERE c.code IN ["' + codes.join('","') + '"] RETURN c;';
+//   let query = 'MATCH (c:Concept)-[:IS_CODED_FROM]->WHERE c.code IN ["' + codes.join('","') + '"] RETURN c;';
 
-  let session = driver.session();
+//   let session = driver.session();
 
-  session.run(query).then(result => {
-    let obj = {};
+//   session.run(query).then(result => {
+//     let obj = {};
 
-    result.records.forEach(r => {
-      let properties = r._fields[0].properties;
-      obj[properties.code] = properties;
-    });
+//     result.records.forEach(r => {
+//       let properties = r._fields[0].properties;
+//       obj[properties.code] = properties;
+//     });
 
-    res.send(obj);
+//     res.send(obj);
 
-  }).catch(err => {
-    console.log(err);
-    res.send({ "error": err });
-  });
+//   }).catch(err => {
+//     console.log(err);
+//     res.send({ "error": err });
+//   });
 
-});
+// });
 
 
 

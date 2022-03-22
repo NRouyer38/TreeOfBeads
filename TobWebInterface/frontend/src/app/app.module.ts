@@ -13,6 +13,7 @@ import { DiscoverComponent } from './home/discover/discover.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashHeaderComponent} from './dashboard/header/header.component'
 
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 
@@ -28,6 +29,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    DashHeaderComponent,
   ],
   imports: [
     BrowserModule,
