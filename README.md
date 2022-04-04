@@ -130,15 +130,6 @@ sudo apt-get update
 sudo apt-get install mariadb-server
 ```
 
-Open mysql command linetool as follow : 
-
-```bash
-# Mysql
-sudo mysql
-source [path_to_tob] \TreeOfBeads\TobUserServer\sql\tob.sql;
-
-```
-
 
 
 __Docker :__
@@ -148,6 +139,21 @@ docker run ...
 
 ## Configuration
 
+### Access to user database
+
+Open mysql command linetool as follow : 
+Change password and username to your liking as well as the path to tob path
+
+```bash
+# Mysql
+sudo service mysql start
+sudo mysql
+source [path_to_tob] \TreeOfBeads\TobUserServer\sql\tob.sql;
+CREATE USER 'username'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON tob.* TO 'username'@'%' WITH GRANT OPTION;
+```
+
+Don't forget to change password and username in the config file of the web interface `./TreeOfBeads/TobWebInterface/backend/config/config.json`
 ## Run
 
 ### TobGraphServer
@@ -170,8 +176,8 @@ If you want to add exemple data from [Book of Knowledge](https://bok.eo4geo.eu/G
 ### TobUserServer
 
 Open a terminal
-
 ```bash
+# Mysql
 sudo service mysql start
 ```
 
