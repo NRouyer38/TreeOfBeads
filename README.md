@@ -168,7 +168,7 @@ cd TobGraphServer
 sudo service neo4j start
 
 # Launch api
-node app.js
+node app.js 
 ```
 
 If you want to add exemple data from [Book of Knowledge](https://bok.eo4geo.eu/GIST) here is the [tutorial](./TobGraphServer/data/DATA-EXAMPLE.md)
