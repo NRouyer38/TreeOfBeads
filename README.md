@@ -130,8 +130,16 @@ sudo apt-get update
 sudo apt-get install mariadb-server
 ```
 
-Create an database with this preset :
-[Template SQL](./TobUserServer/sql/tob.sql)
+Open mysql command linetool as follow : 
+
+```bash
+# Mysql
+sudo mysql
+source [path_to_tob] \TreeOfBeads\TobUserServer\sql\tob.sql;
+
+```
+
+
 
 __Docker :__
 ```bash
