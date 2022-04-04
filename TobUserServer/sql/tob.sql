@@ -7,6 +7,9 @@
 -- Version du serveur : 10.3.31-MariaDB-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
+CREATE DATABASE tob;
+USE tob;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -27,7 +30,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
@@ -42,7 +45,7 @@ CREATE TABLE `user` (
 --
 -- Index pour la table `user`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -52,7 +55,7 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT pour la table `user`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
