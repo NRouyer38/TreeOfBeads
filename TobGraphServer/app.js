@@ -8,7 +8,7 @@ const config = require('./config/config.json');
 
 // Set app
 const app = express();
-const ports = process.env.PORT || 3000;
+const ports = process.env.PORT || 3001;
 
 // Set Cors policy
 const cors_post = cors({
