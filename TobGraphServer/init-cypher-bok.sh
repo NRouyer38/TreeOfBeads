@@ -11,4 +11,8 @@ cp data/*.csv /var/lib/neo4j/import;
 cp scripts/. /var/lib/neo4j/plugins;
 
 # Install BOK
-cat scripts/INSTALL_BOK.cypher | cypher-shell -u neo4j -p 21021998
+echo "Neo4j username:";
+read username;
+echo "Neo4j Password:";
+read password;
+cat scripts/INSTALL_BOK.cypher | cypher-shell -u $username -p $password;
