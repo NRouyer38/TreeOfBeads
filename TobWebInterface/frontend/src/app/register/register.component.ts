@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.authService.register(this.registerForm.value).subscribe((msg) => {
       console.log(msg);
+      window.location.href = "/login";
     })
   }
 
