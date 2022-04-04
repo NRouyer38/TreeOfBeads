@@ -110,4 +110,6 @@ dist
 .angular/
 
 #config
-config.json
+TobGraphServer/config/config.json
+TobWebInterface/backend/config/config.json
+TobWebInterface/frontend/src/app/config/config.json
