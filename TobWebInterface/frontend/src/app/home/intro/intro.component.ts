@@ -27,5 +27,8 @@ export class IntroComponent implements OnInit {
   goToLoginPage(): void {
     window.location.href = "/login";
   }
-
+  
+  goToLoGraphviewPage(): void {
+    window.location.href = "/graphview";
+  }
 }

@@ -16,4 +16,8 @@ export class DiscoverComponent implements OnInit {
     window.location.href = "/login";
   }
 
+  goToLoGraphviewPage(): void {
+    window.location.href = "/graphview";
+  }
+
 }

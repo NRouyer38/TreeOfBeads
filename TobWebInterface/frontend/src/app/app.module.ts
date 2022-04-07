@@ -16,6 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashHeaderComponent} from './dashboard/header/header.component'
 
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { GraphviewComponent } from './graphview/graphview.component';
+import { PanelComponent } from './graphview/panel/panel.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     RegisterComponent,
     DashboardComponent,
     DashHeaderComponent,
+    GraphviewComponent,
+    PanelComponent,
   ],
   imports: [
     BrowserModule,
