@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-panel',
@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
 
-  constructor() { }
-
+  constructor() {
+  }
+  
   ngOnInit(): void {
+    
   }
 
+
+  fullscreenmodes(): void { 
+    var elem = <HTMLElement>document.getElementById("graphview");
+    
+    if (document.fullscreenElement) {
+        document.exitFullscreen()
+        elem.style.paddingTop="50px";
+    } else {
+        elem.requestFullscreen();
+        elem.style.paddingTop="0px";
+    }
+
+  }
 }
+
