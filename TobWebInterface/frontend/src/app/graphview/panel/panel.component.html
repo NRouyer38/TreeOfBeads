@@ -1,10 +1,10 @@
-<div class="back">
+<div id="graphview" class="back">
 
     <div class="container has-background-grey" style="width: 80%;">
         <p class="title is-2 is-spaced is-white">Visu Graph</p>
     </div>
 
-    <div class="panel">
+    <div class="panel has-background-white">
         
         <div>
         <p class="panel-heading">Control Panel</p>
@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="panel-block">
-            <button class="button is-info is-fullwidth">
+            <button (click)="setFullSscreen()" class="button is-info is-fullwidth">
               View full screen
             </button>
         </div>
