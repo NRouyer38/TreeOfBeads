@@ -1,7 +1,6 @@
 .back {
     height: 100vh;
     display: flex;
-    transition: 0.25s;
     padding-top: 50px;
 }
 
