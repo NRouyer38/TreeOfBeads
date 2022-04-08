@@ -17,10 +17,8 @@ export class PanelComponent implements OnInit {
   fullscreenchanged() : void {
     var elem = <HTMLElement>document.getElementById("graphview");
     if (document.fullscreenElement) {
-      console.log("exit fullscreen")
       elem.style.paddingTop="0px";
     } else {
-      console.log("enter fullscreen")
       elem.style.paddingTop="50px";
     }
   }
