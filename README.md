@@ -52,6 +52,7 @@ This part relates to the implementation of the ToB knowledge database. Specifica
 __TobWebInterface__ :
 
 This section of the code is coded using the Angular framework and allow the display of our graph database as well as the implementation of the whole platform from frontend to backend. It is also responsiblefor the user interactions.
+
 __TobUserServer__ :
 
 The user Server is pretty self-explainatory, it handles the communications between the web interface and the user database. The user database stores infos about the user and their progress/participation within the platform ToB.
