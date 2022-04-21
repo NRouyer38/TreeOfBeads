@@ -15,6 +15,8 @@ router.post(
         // Check first name and last name
         body('first_name').trim().not().isEmpty(),
         body('last_name').trim().not().isEmpty(),
+        body('user_name').trim().not().isEmpty(),
+
         
         // Check email 
         body('email').isEmail().withMessage("Please enter a valid email.").custom(async (email) => {

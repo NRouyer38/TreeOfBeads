@@ -16,4 +16,8 @@ export class HeaderComponent implements OnInit {
     window.location.href = "/login";
   }
 
+  goToRegisterPage(): void {
+    window.location.href = "/register"
+  }
+
 }
