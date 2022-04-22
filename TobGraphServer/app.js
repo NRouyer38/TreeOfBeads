@@ -48,11 +48,11 @@ app.get("/get/concepts/node/", cors_get, (req, res) => {
   let session = driver.session();
 
   session.run("MATCH (c:Concept) RETURN c;").then(result => {
-    let obj = {};
+    let obj = [];
 
     result.records.forEach(r => {
       let properties = r._fields[0].properties;
-      obj[properties.code] = properties;
+      obj.push(properties);
     });
 
     res.send(obj);
@@ -92,51 +92,47 @@ app.get("/get/concepts/node/:code", cors_get, (req, res) => {
 });
 
 // TREE
-// app.get("/get/concepts/tree/", cors_get, (req, res) => {
-//   let session = driver.session();
+app.get("/get/concepts/tree/", cors_get, (req, res) => {
+  let session = driver.session();
 
-//   session.run("MATCH (c:Concept) RETURN c;").then(result => {
-//     let obj = {};
+  session.run('MATCH (c:Concept)-[r:IS_CODED_FROM*1..]->(s:Concept) WHERE s.code = c.parent RETURN c.code, s.code;').then(result => {
+    let obj = [];
 
-//     result.records.forEach(r => {
-//       let properties = r._fields[0].properties;
-//       obj[properties.code] = properties;
-//     });
+    result.records.forEach(r => {
+      obj.push({start: r._fields[0], end: r._fields[1]})
+    });
 
-//     // rearrange
-//     let result = Node.treeStruct(obj);
+    res.send(obj);
 
-//     session.close();
+    session.close();
 
-//   }).catch(err => {
-//     console.log(err);
-//     res.send({ "error": err });
-//   });
-// });
+  }).catch(err => {
+    console.log(err);
+    res.send({ "error": err });
+  });
+});
 
-// app.get("/get/concepts/root/:code", cors_get, (req, res) => {
-//   // Get codes
+app.get("/get/concepts/tree/:root", cors_get, (req, res) => {
+  let session = driver.session();
 
-//   let query = 'MATCH (c:Concept)-[:IS_CODED_FROM]->WHERE c.code IN ["' + codes.join('","') + '"] RETURN c;';
+  let root = req.params.root;
 
-//   let session = driver.session();
+  session.run('MATCH (c:Concept)-[r:IS_CODED_FROM*1..]->(s:Concept {code: "'+root+'"}) WHERE s.code = c.parent RETURN c.code, s.code;').then(result => {
+    let obj = [];
 
-//   session.run(query).then(result => {
-//     let obj = {};
+    result.records.forEach(r => {
+      obj.push({start: r._fields[0], end: r._fields[1]})
+    });
 
-//     result.records.forEach(r => {
-//       let properties = r._fields[0].properties;
-//       obj[properties.code] = properties;
-//     });
+    res.send(obj);
 
-//     res.send(obj);
+    session.close();
 
-//   }).catch(err => {
-//     console.log(err);
-//     res.send({ "error": err });
-//   });
-
-// });
+  }).catch(err => {
+    console.log(err);
+    res.send({ "error": err });
+  });
+});
 
 
 

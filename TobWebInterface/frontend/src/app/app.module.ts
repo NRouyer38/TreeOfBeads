@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashHeaderComponent} from './dashboard/header/header.component'
+import { ViewerComponent } from './dashboard/viewer/viewer.component';
 
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { GraphviewComponent } from './graphview/graphview.component';
@@ -32,6 +33,7 @@ import { PanelComponent } from './graphview/panel/panel.component';
     RegisterComponent,
     DashboardComponent,
     DashHeaderComponent,
+    ViewerComponent,
     GraphviewComponent,
     PanelComponent,
   ],

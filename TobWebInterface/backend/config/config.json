@@ -1,8 +1,8 @@
 {
     "db": {
         "host": "localhost",
-        "user": "root",
-        "password": "",
+        "user": "JPierrat",
+        "password": "qhUz9&RWa69",
         "database": "tob"
     },
     "client": {
