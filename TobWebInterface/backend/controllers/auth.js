@@ -16,6 +16,7 @@ exports.register = async (req, res, next) => {
     // Get data from body
     const first_name = req.body.first_name;
     const last_name = req.body.last_name;
+    const user_name = req.body.user_name;
     const email = req.body.email;
     const password = req.body.password;
 
@@ -27,6 +28,7 @@ exports.register = async (req, res, next) => {
         const userDetails = {
             first_name: first_name,
             last_name: last_name,
+            user_name: user_name,
             email: email,
             password: hashedPassword
         }

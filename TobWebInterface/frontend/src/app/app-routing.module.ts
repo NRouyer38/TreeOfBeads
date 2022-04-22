@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent} from './dashboard/dashboard.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { GraphviewComponent} from './graphview/graphview.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     //canActivate: [AuthGuardService]
+  },
+  {
+    path: 'graphview',
+    component: GraphviewComponent
   },
   {
     path: "**",

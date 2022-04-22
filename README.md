@@ -24,7 +24,9 @@ __It is produced by :__
 
 ### Definition of the project and its objectives
 
-Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, Bla, bla, 
+Tree of Beads (ToB) is a free interactive tool presented in collaboration between the European Copernicus program, the CNES (Centre National d'études spatiales) and ENSG (Ecole Nationale des Sciences Géographiques). It's aim is to provide a centralized platform for everyone that wants to discover or improve their skills and knowledge regarding remote sensing. A better understanding of remote sensing technologies and concepts will allow you to better use the open source Copernices program products.
+If you're a beginner or already an expert that wants to extend the reach of its capabilities, this platform is made for you! If you're looking for specific formations relative to your needs, our tool will provide you whith a clear and distinct path toward mastering this fields of remote sensing. Our tool is able to lay before you a clear path that will take you step by step toward your goal without skipping any pre-requisites so that you can understand the full ramifications of what you're trying to learn.
+This tool is divided into different job implementations like 'detecting wildfires' or 'calculate gases concentrations over an area'. Those job implementations are made of a series of concept that sometime recoup each other for the most basic ones. The This way, it is easier for you to identify you're needs or get informed on a job implementation close to your needs. If you feel that your needs are not enough represented in any of the job implementations, feel free to contact us so that we can deliver a new formation cursus.
 
 *liens*: [*Project definition (PDF)*](media/pdf/project_presentation.pdf), [*Project objectives (PDF)*](media/pdf/project_objectives.pdf)
 
@@ -45,13 +47,17 @@ We will go into the details of these three elements later. They are independent,
 
 __TobGraphServer__ :
 
+This part relates to the implementation of the ToB knowledge database. Specificaly, it is used to create and maintain our graph database that we implemented base on the one constructed by eo4geo available at this link: https://bok.eo4geo.eu/GIST
 
 __TobWebInterface__ :
 
+This section of the code is coded using the Angular framework and allow the display of our graph database as well as the implementation of the whole platform from frontend to backend. It is also responsiblefor the user interactions.
 
 __TobUserServer__ :
 
-__Quick summary of the structur :__
+The user Server is pretty self-explainatory, it handles the communications between the web interface and the user database. The user database stores infos about the user and their progress/participation within the platform ToB.
+
+__Quick summary of the structure :__
 
 <img src="media/img/basic_structure.png">
 <p align="center">Basic structur of Tree of Beads</p>

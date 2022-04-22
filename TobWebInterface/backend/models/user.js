@@ -4,9 +4,10 @@ const db = require('../util/database');
 // Create class User
 module.exports = class User {
     // Set it attributes
-    constructor(first_name, last_name, email, password) {
+    constructor(first_name, last_name,user_name, email, password) {
         this.first_name = first_name;
         this.last_name = last_name;
+        this.user_name = user_name;
         this.email = email;
         this.password = password;
     }
