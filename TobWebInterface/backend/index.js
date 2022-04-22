@@ -9,7 +9,7 @@ const config = require('./config/config.json');
 
 // Init API and Port
 const app = express();
-const ports = process.env.PORT || 3000;
+const ports = process.env.PORT || 3100;
 
 // Set body parser
 app.use(bodyParser.json());
