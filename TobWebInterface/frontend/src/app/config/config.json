@@ -1,5 +1,8 @@
 {
     "serveur": {
         "host": "http://localhost:3000"
+    },
+    "graphserver": {
+        "host": "http://localhost:3001"
     }
 }
